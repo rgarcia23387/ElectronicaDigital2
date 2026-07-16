@@ -23,10 +23,10 @@
 #define BTN_J2          (1 << PC4)  // Pushbutton jugador 2
 #define DEBOUNCE_COUNT  2           // Muestras estables para validar (10 ms)
 
-// LEDs jugador 1 (D8-D11 = PB0-PB3)
+// LEDs jugador 1 
 #define LED_J1_MASK     0x0F
 
-// LEDs jugador 2 (D12,D13 = PB4,PB5 / A0,A1 = PC0,PC1)
+// LEDs jugador 2 
 #define LED_J2_B_MASK   0x30   // PB4,PB5 (bits bajos del contador)
 #define LED_J2_C_MASK   0x03   // PC0,PC1 (bits altos del contador)
 
@@ -34,8 +34,8 @@
 #define META            4
 
 // Timers
-#define TIMER1_OCR      15624       // CTC, prescaler 1024 -> 1 Hz (segundero)
-#define TIMER0_OCR      77          // CTC, prescaler 1024 -> ~5 ms (muestreo botones)
+#define TIMER1_OCR      15624       // CTC, prescaler 1024 - 1 Hz (segundero)
+#define TIMER0_OCR      77          // CTC, prescaler 1024 - 5 ms (muestreo botones)
 
 typedef enum { ESPERA = 0, CUENTA_REGRESIVA, CARRERA, FIN } estado_t;
 
@@ -133,7 +133,7 @@ void initTimer0(void)
 // Enciende LEDs del jugador 1 sin apagar los anteriores
 void actualizarLEDsJ1(uint8_t valor)
 {
-    uint8_t patron = (1 << valor) - 1;   // valor=2 - 0b0011, valor=4 -> 0b1111
+    uint8_t patron = (1 << valor) - 1;   // valor=2 - 0b0011, valor=4 - 0b1111
     PORTB = (PORTB & ~LED_J1_MASK) | (patron & LED_J1_MASK);
 }
 
@@ -186,7 +186,7 @@ void verificarGanador(void)
 // Interrupt routines
 /****************************************/
 
-// ISR - Timer1 Compare Match A, cada 1 s: cuenta regresiva
+// ISR - Timer1 Compare Match A, cada 1s: cuenta regresiva
 ISR(TIMER1_COMPA_vect)
 {
     if (estado == CUENTA_REGRESIVA) {
