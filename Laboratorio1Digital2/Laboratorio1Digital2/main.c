@@ -7,16 +7,6 @@
  *									Parte 2: contadores de decada de los jugadores (antirrebote).
  *									Parte 3: deteccion del ganador (LEDs + display).
  */
-/*
- * Laboratorio1.c
- *
- * Created: 
- * Author: 
- * Description: Juego de carreras completo.
- *				Parte 1: boton de inicio con cuenta regresiva.
- *				Parte 2: contadores de decada de los jugadores (antirrebote).
- *				Parte 3: deteccion del ganador (LEDs + display).
- */
 /****************************************/
 // Encabezado (Libraries)
 /****************************************/
