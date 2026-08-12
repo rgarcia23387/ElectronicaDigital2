@@ -1,0 +1,979 @@
+
+Esclavo_Porton.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         000000ca  00800100  00000570  00000604  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000570  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000006  008001ca  008001ca  000006ce  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000006ce  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000700  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000128  00000000  00000000  00000740  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000011b4  00000000  00000000  00000868  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000ba7  00000000  00000000  00001a1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000a89  00000000  00000000  000025c3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000022c  00000000  00000000  0000304c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000596  00000000  00000000  00003278  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000636  00000000  00000000  0000380e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000c8  00000000  00000000  00003e44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 71 01 	jmp	0x2e2	; 0x2e2 <__vector_14>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__vector_24>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e0 e7       	ldi	r30, 0x70	; 112
+  7c:	f5 e0       	ldi	r31, 0x05	; 5
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	aa 3c       	cpi	r26, 0xCA	; 202
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	aa ec       	ldi	r26, 0xCA	; 202
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 3d       	cpi	r26, 0xD0	; 208
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 80 00 	call	0x100	; 0x100 <main>
+  9e:	0c 94 b6 02 	jmp	0x56c	; 0x56c <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <I2C_Slave_Init>:
+#include <avr/interrupt.h>
+
+volatile uint8_t i2c_estado = 0;
+
+void I2C_Slave_Init(uint8_t direccion) {
+	TWAR = (direccion << 1);                          // direccion propia
+  a6:	88 0f       	add	r24, r24
+  a8:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <__TEXT_REGION_LENGTH__+0x7f80ba>
+	TWCR = (1 << TWEA) | (1 << TWEN) | (1 << TWIE);   // responde con ACK
+  ac:	85 e4       	ldi	r24, 0x45	; 69
+  ae:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+  b2:	08 95       	ret
+
+000000b4 <__vector_24>:
+}
+
+ISR(TWI_vect) {
+  b4:	1f 92       	push	r1
+  b6:	0f 92       	push	r0
+  b8:	0f b6       	in	r0, 0x3f	; 63
+  ba:	0f 92       	push	r0
+  bc:	11 24       	eor	r1, r1
+  be:	8f 93       	push	r24
+  c0:	ef 93       	push	r30
+  c2:	ff 93       	push	r31
+	switch (TWSR & 0xF8) {
+  c4:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7f80b9>
+  c8:	88 7f       	andi	r24, 0xF8	; 248
+  ca:	88 3a       	cpi	r24, 0xA8	; 168
+  cc:	11 f0       	breq	.+4      	; 0xd2 <__vector_24+0x1e>
+  ce:	88 3b       	cpi	r24, 0xB8	; 184
+  d0:	51 f4       	brne	.+20     	; 0xe6 <__vector_24+0x32>
+		case 0xA8:                       // el Maestro nos quiere leer
+		case 0xB8:
+			TWDR = i2c_estado;
+  d2:	80 91 ca 01 	lds	r24, 0x01CA	; 0x8001ca <__data_end>
+  d6:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+			TWCR |= (1 << TWEA) | (1 << TWINT);
+  da:	ec eb       	ldi	r30, 0xBC	; 188
+  dc:	f0 e0       	ldi	r31, 0x00	; 0
+  de:	80 81       	ld	r24, Z
+  e0:	80 6c       	ori	r24, 0xC0	; 192
+  e2:	80 83       	st	Z, r24
+			break;
+  e4:	05 c0       	rjmp	.+10     	; 0xf0 <__vector_24+0x3c>
+
+		default:                         // cualquier otro caso: solo continuar
+			TWCR |= (1 << TWEA) | (1 << TWINT);
+  e6:	ec eb       	ldi	r30, 0xBC	; 188
+  e8:	f0 e0       	ldi	r31, 0x00	; 0
+  ea:	80 81       	ld	r24, Z
+  ec:	80 6c       	ori	r24, 0xC0	; 192
+  ee:	80 83       	st	Z, r24
+			break;
+	}
+}
+  f0:	ff 91       	pop	r31
+  f2:	ef 91       	pop	r30
+  f4:	8f 91       	pop	r24
+  f6:	0f 90       	pop	r0
+  f8:	0f be       	out	0x3f, r0	; 63
+  fa:	0f 90       	pop	r0
+  fc:	1f 90       	pop	r1
+  fe:	18 95       	reti
+
+00000100 <main>:
+
+int main(void) {
+	uint8_t porton_abierto = 0;
+	uint32_t tiempo_apertura = 0, t_serial = 0;
+
+	Tiempo_Init();
+ 100:	0e 94 96 01 	call	0x32c	; 0x32c <Tiempo_Init>
+	UART_Init(9600);
+ 104:	60 e8       	ldi	r22, 0x80	; 128
+ 106:	75 e2       	ldi	r23, 0x25	; 37
+ 108:	80 e0       	ldi	r24, 0x00	; 0
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	0e 94 aa 01 	call	0x354	; 0x354 <UART_Init>
+	Ultrasonico_Init();
+ 110:	0e 94 3d 02 	call	0x47a	; 0x47a <Ultrasonico_Init>
+	Stepper_Init();
+ 114:	0e 94 5f 01 	call	0x2be	; 0x2be <Stepper_Init>
+	I2C_Slave_Init(I2C_DIRECCION);
+ 118:	89 e0       	ldi	r24, 0x09	; 9
+ 11a:	0e 94 53 00 	call	0xa6	; 0xa6 <I2C_Slave_Init>
+	sei();
+ 11e:	78 94       	sei
+
+	i2c_estado = 0;
+ 120:	10 92 ca 01 	sts	0x01CA, r1	; 0x8001ca <__data_end>
+	UART_Print("=== ESCLAVO PORTON ===\r\n");
+ 124:	8a e2       	ldi	r24, 0x2A	; 42
+ 126:	91 e0       	ldi	r25, 0x01	; 1
+ 128:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+	UART_Print("Esperando vehiculos...\r\n");
+ 12c:	83 e4       	ldi	r24, 0x43	; 67
+ 12e:	91 e0       	ldi	r25, 0x01	; 1
+ 130:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+#define UMBRAL_CM      15       // menos de esto = hay un vehiculo
+#define TIEMPO_ABIERTO 3000UL   // el porton se queda abierto 3 segundos
+
+int main(void) {
+	uint8_t porton_abierto = 0;
+	uint32_t tiempo_apertura = 0, t_serial = 0;
+ 134:	c1 2c       	mov	r12, r1
+ 136:	d1 2c       	mov	r13, r1
+ 138:	76 01       	movw	r14, r12
+ 13a:	81 2c       	mov	r8, r1
+ 13c:	91 2c       	mov	r9, r1
+ 13e:	54 01       	movw	r10, r8
+
+#define UMBRAL_CM      15       // menos de esto = hay un vehiculo
+#define TIEMPO_ABIERTO 3000UL   // el porton se queda abierto 3 segundos
+
+int main(void) {
+	uint8_t porton_abierto = 0;
+ 140:	10 e0       	ldi	r17, 0x00	; 0
+	i2c_estado = 0;
+	UART_Print("=== ESCLAVO PORTON ===\r\n");
+	UART_Print("Esperando vehiculos...\r\n");
+
+	while (1) {
+		uint16_t distancia = Ultrasonico_LeerCM();
+ 142:	0e 94 47 02 	call	0x48e	; 0x48e <Ultrasonico_LeerCM>
+ 146:	ec 01       	movw	r28, r24
+		uint8_t vehiculo = (distancia > 0 && distancia < UMBRAL_CM);
+ 148:	01 97       	sbiw	r24, 0x01	; 1
+
+		/* ---- Abrir el porton ---- */
+		if (vehiculo && !porton_abierto) {
+ 14a:	0e 97       	sbiw	r24, 0x0e	; 14
+ 14c:	d8 f4       	brcc	.+54     	; 0x184 <main+0x84>
+ 14e:	11 11       	cpse	r17, r1
+ 150:	19 c0       	rjmp	.+50     	; 0x184 <main+0x84>
+			UART_Print("Vehiculo a ");
+ 152:	8c e5       	ldi	r24, 0x5C	; 92
+ 154:	91 e0       	ldi	r25, 0x01	; 1
+ 156:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+			UART_PrintNum(distancia);
+ 15a:	ce 01       	movw	r24, r28
+ 15c:	0e 94 e5 01 	call	0x3ca	; 0x3ca <UART_PrintNum>
+			UART_Print(" cm -> ABRIENDO\r\n");
+ 160:	88 e6       	ldi	r24, 0x68	; 104
+ 162:	91 e0       	ldi	r25, 0x01	; 1
+ 164:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+
+			porton_abierto = 1;                 // se marca antes de mover, asi el
+			i2c_estado = BIT_PORTON_ABIERTO;    // Maestro lo ve durante todo el giro
+ 168:	81 e0       	ldi	r24, 0x01	; 1
+ 16a:	80 93 ca 01 	sts	0x01CA, r24	; 0x8001ca <__data_end>
+
+			Stepper_Abrir();
+ 16e:	0e 94 65 01 	call	0x2ca	; 0x2ca <Stepper_Abrir>
+			tiempo_apertura = millis();
+ 172:	0e 94 9f 01 	call	0x33e	; 0x33e <millis>
+ 176:	4b 01       	movw	r8, r22
+ 178:	5c 01       	movw	r10, r24
+			UART_Print("Porton ABIERTO\r\n");
+ 17a:	8a e7       	ldi	r24, 0x7A	; 122
+ 17c:	91 e0       	ldi	r25, 0x01	; 1
+ 17e:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+		if (vehiculo && !porton_abierto) {
+			UART_Print("Vehiculo a ");
+			UART_PrintNum(distancia);
+			UART_Print(" cm -> ABRIENDO\r\n");
+
+			porton_abierto = 1;                 // se marca antes de mover, asi el
+ 182:	11 e0       	ldi	r17, 0x01	; 1
+			tiempo_apertura = millis();
+			UART_Print("Porton ABIERTO\r\n");
+		}
+
+		/* ---- Cerrar a los 3 segundos ---- */
+		if (porton_abierto && (millis() - tiempo_apertura >= TIEMPO_ABIERTO)) {
+ 184:	11 23       	and	r17, r17
+ 186:	d1 f0       	breq	.+52     	; 0x1bc <main+0xbc>
+ 188:	0e 94 9f 01 	call	0x33e	; 0x33e <millis>
+ 18c:	dc 01       	movw	r26, r24
+ 18e:	cb 01       	movw	r24, r22
+ 190:	88 19       	sub	r24, r8
+ 192:	99 09       	sbc	r25, r9
+ 194:	aa 09       	sbc	r26, r10
+ 196:	bb 09       	sbc	r27, r11
+ 198:	88 3b       	cpi	r24, 0xB8	; 184
+ 19a:	9b 40       	sbci	r25, 0x0B	; 11
+ 19c:	a1 05       	cpc	r26, r1
+ 19e:	b1 05       	cpc	r27, r1
+ 1a0:	68 f0       	brcs	.+26     	; 0x1bc <main+0xbc>
+			UART_Print("CERRANDO porton\r\n");
+ 1a2:	8b e8       	ldi	r24, 0x8B	; 139
+ 1a4:	91 e0       	ldi	r25, 0x01	; 1
+ 1a6:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+			Stepper_Cerrar();
+ 1aa:	0e 94 6b 01 	call	0x2d6	; 0x2d6 <Stepper_Cerrar>
+			porton_abierto = 0;
+			i2c_estado = 0;
+ 1ae:	10 92 ca 01 	sts	0x01CA, r1	; 0x8001ca <__data_end>
+			UART_Print("Porton CERRADO\r\n");
+ 1b2:	8d e9       	ldi	r24, 0x9D	; 157
+ 1b4:	91 e0       	ldi	r25, 0x01	; 1
+ 1b6:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+
+		/* ---- Cerrar a los 3 segundos ---- */
+		if (porton_abierto && (millis() - tiempo_apertura >= TIEMPO_ABIERTO)) {
+			UART_Print("CERRANDO porton\r\n");
+			Stepper_Cerrar();
+			porton_abierto = 0;
+ 1ba:	10 e0       	ldi	r17, 0x00	; 0
+			i2c_estado = 0;
+			UART_Print("Porton CERRADO\r\n");
+		}
+
+		/* ---- Monitoreo cada 2 segundos ---- */
+		if (millis() - t_serial > 2000) {
+ 1bc:	0e 94 9f 01 	call	0x33e	; 0x33e <millis>
+ 1c0:	dc 01       	movw	r26, r24
+ 1c2:	cb 01       	movw	r24, r22
+ 1c4:	8c 19       	sub	r24, r12
+ 1c6:	9d 09       	sbc	r25, r13
+ 1c8:	ae 09       	sbc	r26, r14
+ 1ca:	bf 09       	sbc	r27, r15
+ 1cc:	81 3d       	cpi	r24, 0xD1	; 209
+ 1ce:	97 40       	sbci	r25, 0x07	; 7
+ 1d0:	a1 05       	cpc	r26, r1
+ 1d2:	b1 05       	cpc	r27, r1
+ 1d4:	f8 f0       	brcs	.+62     	; 0x214 <main+0x114>
+			UART_Print("Distancia: ");
+ 1d6:	8e ea       	ldi	r24, 0xAE	; 174
+ 1d8:	91 e0       	ldi	r25, 0x01	; 1
+ 1da:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+			if (distancia > 0) { UART_PrintNum(distancia); UART_Print(" cm"); }
+ 1de:	20 97       	sbiw	r28, 0x00	; 0
+ 1e0:	41 f0       	breq	.+16     	; 0x1f2 <main+0xf2>
+ 1e2:	ce 01       	movw	r24, r28
+ 1e4:	0e 94 e5 01 	call	0x3ca	; 0x3ca <UART_PrintNum>
+ 1e8:	8a eb       	ldi	r24, 0xBA	; 186
+ 1ea:	91 e0       	ldi	r25, 0x01	; 1
+ 1ec:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+ 1f0:	04 c0       	rjmp	.+8      	; 0x1fa <main+0xfa>
+			else UART_Print("sin lectura");
+ 1f2:	8e eb       	ldi	r24, 0xBE	; 190
+ 1f4:	91 e0       	ldi	r25, 0x01	; 1
+ 1f6:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+			UART_Print(porton_abierto ? " | Porton: ABIERTO\r\n" : " | Porton: CERRADO\r\n");
+ 1fa:	11 23       	and	r17, r17
+ 1fc:	19 f0       	breq	.+6      	; 0x204 <main+0x104>
+ 1fe:	80 e0       	ldi	r24, 0x00	; 0
+ 200:	91 e0       	ldi	r25, 0x01	; 1
+ 202:	02 c0       	rjmp	.+4      	; 0x208 <main+0x108>
+ 204:	85 e1       	ldi	r24, 0x15	; 21
+ 206:	91 e0       	ldi	r25, 0x01	; 1
+ 208:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <UART_Print>
+			t_serial = millis();
+ 20c:	0e 94 9f 01 	call	0x33e	; 0x33e <millis>
+ 210:	6b 01       	movw	r12, r22
+ 212:	7c 01       	movw	r14, r24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 214:	8f ef       	ldi	r24, 0xFF	; 255
+ 216:	90 e7       	ldi	r25, 0x70	; 112
+ 218:	22 e0       	ldi	r18, 0x02	; 2
+ 21a:	81 50       	subi	r24, 0x01	; 1
+ 21c:	90 40       	sbci	r25, 0x00	; 0
+ 21e:	20 40       	sbci	r18, 0x00	; 0
+ 220:	e1 f7       	brne	.-8      	; 0x21a <main+0x11a>
+ 222:	00 c0       	rjmp	.+0      	; 0x224 <main+0x124>
+ 224:	00 00       	nop
+ 226:	8d cf       	rjmp	.-230    	; 0x142 <main+0x42>
+
+00000228 <stepper_apagar>:
+#define STEP_MASK ((1 << STEP_IN1) | (1 << STEP_IN2) | (1 << STEP_IN3) | (1 << STEP_IN4))
+
+static int8_t paso_actual = 0;
+
+static void stepper_apagar(void) {
+	PORTB &= ~STEP_MASK;    // sin corriente en las bobinas, evita calentamiento
+ 228:	85 b1       	in	r24, 0x05	; 5
+ 22a:	80 7f       	andi	r24, 0xF0	; 240
+ 22c:	85 b9       	out	0x05, r24	; 5
+ 22e:	08 95       	ret
+
+00000230 <aplicar_paso>:
+}
+
+static void aplicar_paso(int8_t p) {
+	uint8_t salida;
+
+	if      (p == 0) salida = (1 << STEP_IN1);
+ 230:	88 23       	and	r24, r24
+ 232:	31 f0       	breq	.+12     	; 0x240 <aplicar_paso+0x10>
+	else if (p == 1) salida = (1 << STEP_IN2);
+ 234:	81 30       	cpi	r24, 0x01	; 1
+ 236:	31 f0       	breq	.+12     	; 0x244 <aplicar_paso+0x14>
+	else if (p == 2) salida = (1 << STEP_IN3);
+ 238:	82 30       	cpi	r24, 0x02	; 2
+ 23a:	31 f4       	brne	.+12     	; 0x248 <aplicar_paso+0x18>
+ 23c:	94 e0       	ldi	r25, 0x04	; 4
+ 23e:	05 c0       	rjmp	.+10     	; 0x24a <aplicar_paso+0x1a>
+}
+
+static void aplicar_paso(int8_t p) {
+	uint8_t salida;
+
+	if      (p == 0) salida = (1 << STEP_IN1);
+ 240:	91 e0       	ldi	r25, 0x01	; 1
+ 242:	03 c0       	rjmp	.+6      	; 0x24a <aplicar_paso+0x1a>
+	else if (p == 1) salida = (1 << STEP_IN2);
+ 244:	92 e0       	ldi	r25, 0x02	; 2
+ 246:	01 c0       	rjmp	.+2      	; 0x24a <aplicar_paso+0x1a>
+	else if (p == 2) salida = (1 << STEP_IN3);
+	else             salida = (1 << STEP_IN4);
+ 248:	98 e0       	ldi	r25, 0x08	; 8
+
+	PORTB = (PORTB & ~STEP_MASK) | salida;
+ 24a:	85 b1       	in	r24, 0x05	; 5
+ 24c:	80 7f       	andi	r24, 0xF0	; 240
+ 24e:	89 2b       	or	r24, r25
+ 250:	85 b9       	out	0x05, r24	; 5
+ 252:	08 95       	ret
+
+00000254 <mover>:
+}
+
+static void mover(uint16_t pasos, uint8_t sentido) {
+ 254:	ff 92       	push	r15
+ 256:	0f 93       	push	r16
+ 258:	1f 93       	push	r17
+ 25a:	cf 93       	push	r28
+ 25c:	df 93       	push	r29
+ 25e:	8c 01       	movw	r16, r24
+ 260:	f6 2e       	mov	r15, r22
+	for (uint16_t i = 0; i < pasos; i++) {
+ 262:	c0 e0       	ldi	r28, 0x00	; 0
+ 264:	d0 e0       	ldi	r29, 0x00	; 0
+ 266:	20 c0       	rjmp	.+64     	; 0x2a8 <mover+0x54>
+		paso_actual += sentido ? 1 : -1;
+ 268:	ff 20       	and	r15, r15
+ 26a:	11 f0       	breq	.+4      	; 0x270 <mover+0x1c>
+ 26c:	91 e0       	ldi	r25, 0x01	; 1
+ 26e:	01 c0       	rjmp	.+2      	; 0x272 <mover+0x1e>
+ 270:	9f ef       	ldi	r25, 0xFF	; 255
+ 272:	80 91 cb 01 	lds	r24, 0x01CB	; 0x8001cb <paso_actual>
+ 276:	89 0f       	add	r24, r25
+ 278:	80 93 cb 01 	sts	0x01CB, r24	; 0x8001cb <paso_actual>
+		if (paso_actual > 3) paso_actual = 0;   // la secuencia es circular
+ 27c:	84 30       	cpi	r24, 0x04	; 4
+ 27e:	14 f0       	brlt	.+4      	; 0x284 <mover+0x30>
+ 280:	10 92 cb 01 	sts	0x01CB, r1	; 0x8001cb <paso_actual>
+		if (paso_actual < 0) paso_actual = 3;
+ 284:	80 91 cb 01 	lds	r24, 0x01CB	; 0x8001cb <paso_actual>
+ 288:	88 23       	and	r24, r24
+ 28a:	1c f4       	brge	.+6      	; 0x292 <mover+0x3e>
+ 28c:	83 e0       	ldi	r24, 0x03	; 3
+ 28e:	80 93 cb 01 	sts	0x01CB, r24	; 0x8001cb <paso_actual>
+		aplicar_paso(paso_actual);
+ 292:	80 91 cb 01 	lds	r24, 0x01CB	; 0x8001cb <paso_actual>
+ 296:	0e 94 18 01 	call	0x230	; 0x230 <aplicar_paso>
+ 29a:	8f e3       	ldi	r24, 0x3F	; 63
+ 29c:	9f e1       	ldi	r25, 0x1F	; 31
+ 29e:	01 97       	sbiw	r24, 0x01	; 1
+ 2a0:	f1 f7       	brne	.-4      	; 0x29e <mover+0x4a>
+ 2a2:	00 c0       	rjmp	.+0      	; 0x2a4 <mover+0x50>
+ 2a4:	00 00       	nop
+
+	PORTB = (PORTB & ~STEP_MASK) | salida;
+}
+
+static void mover(uint16_t pasos, uint8_t sentido) {
+	for (uint16_t i = 0; i < pasos; i++) {
+ 2a6:	21 96       	adiw	r28, 0x01	; 1
+ 2a8:	c0 17       	cp	r28, r16
+ 2aa:	d1 07       	cpc	r29, r17
+ 2ac:	e8 f2       	brcs	.-70     	; 0x268 <mover+0x14>
+		if (paso_actual > 3) paso_actual = 0;   // la secuencia es circular
+		if (paso_actual < 0) paso_actual = 3;
+		aplicar_paso(paso_actual);
+		_delay_ms(VELOCIDAD_PASO);
+	}
+	stepper_apagar();
+ 2ae:	0e 94 14 01 	call	0x228	; 0x228 <stepper_apagar>
+}
+ 2b2:	df 91       	pop	r29
+ 2b4:	cf 91       	pop	r28
+ 2b6:	1f 91       	pop	r17
+ 2b8:	0f 91       	pop	r16
+ 2ba:	ff 90       	pop	r15
+ 2bc:	08 95       	ret
+
+000002be <Stepper_Init>:
+
+void Stepper_Init(void) {
+	DDRB |= STEP_MASK;
+ 2be:	84 b1       	in	r24, 0x04	; 4
+ 2c0:	8f 60       	ori	r24, 0x0F	; 15
+ 2c2:	84 b9       	out	0x04, r24	; 4
+	stepper_apagar();
+ 2c4:	0e 94 14 01 	call	0x228	; 0x228 <stepper_apagar>
+ 2c8:	08 95       	ret
+
+000002ca <Stepper_Abrir>:
+}
+
+void Stepper_Abrir(void)  { mover(PASOS_PORTON, 1); }
+ 2ca:	61 e0       	ldi	r22, 0x01	; 1
+ 2cc:	80 e0       	ldi	r24, 0x00	; 0
+ 2ce:	94 e0       	ldi	r25, 0x04	; 4
+ 2d0:	0e 94 2a 01 	call	0x254	; 0x254 <mover>
+ 2d4:	08 95       	ret
+
+000002d6 <Stepper_Cerrar>:
+void Stepper_Cerrar(void) { mover(PASOS_PORTON, 0); }
+ 2d6:	60 e0       	ldi	r22, 0x00	; 0
+ 2d8:	80 e0       	ldi	r24, 0x00	; 0
+ 2da:	94 e0       	ldi	r25, 0x04	; 4
+ 2dc:	0e 94 2a 01 	call	0x254	; 0x254 <mover>
+ 2e0:	08 95       	ret
+
+000002e2 <__vector_14>:
+#include "Tiempo.h"
+#include <avr/interrupt.h>
+
+volatile uint32_t ms_count = 0;
+
+ISR(TIMER0_COMPA_vect) { ms_count++; }   // se dispara cada 1 ms
+ 2e2:	1f 92       	push	r1
+ 2e4:	0f 92       	push	r0
+ 2e6:	0f b6       	in	r0, 0x3f	; 63
+ 2e8:	0f 92       	push	r0
+ 2ea:	11 24       	eor	r1, r1
+ 2ec:	8f 93       	push	r24
+ 2ee:	9f 93       	push	r25
+ 2f0:	af 93       	push	r26
+ 2f2:	bf 93       	push	r27
+ 2f4:	80 91 cc 01 	lds	r24, 0x01CC	; 0x8001cc <ms_count>
+ 2f8:	90 91 cd 01 	lds	r25, 0x01CD	; 0x8001cd <ms_count+0x1>
+ 2fc:	a0 91 ce 01 	lds	r26, 0x01CE	; 0x8001ce <ms_count+0x2>
+ 300:	b0 91 cf 01 	lds	r27, 0x01CF	; 0x8001cf <ms_count+0x3>
+ 304:	01 96       	adiw	r24, 0x01	; 1
+ 306:	a1 1d       	adc	r26, r1
+ 308:	b1 1d       	adc	r27, r1
+ 30a:	80 93 cc 01 	sts	0x01CC, r24	; 0x8001cc <ms_count>
+ 30e:	90 93 cd 01 	sts	0x01CD, r25	; 0x8001cd <ms_count+0x1>
+ 312:	a0 93 ce 01 	sts	0x01CE, r26	; 0x8001ce <ms_count+0x2>
+ 316:	b0 93 cf 01 	sts	0x01CF, r27	; 0x8001cf <ms_count+0x3>
+ 31a:	bf 91       	pop	r27
+ 31c:	af 91       	pop	r26
+ 31e:	9f 91       	pop	r25
+ 320:	8f 91       	pop	r24
+ 322:	0f 90       	pop	r0
+ 324:	0f be       	out	0x3f, r0	; 63
+ 326:	0f 90       	pop	r0
+ 328:	1f 90       	pop	r1
+ 32a:	18 95       	reti
+
+0000032c <Tiempo_Init>:
+
+void Tiempo_Init(void) {
+	TCCR0A = (1 << WGM01);               // modo CTC
+ 32c:	82 e0       	ldi	r24, 0x02	; 2
+ 32e:	84 bd       	out	0x24, r24	; 36
+	OCR0A  = 249;                        // 1 ms con prescaler 64
+ 330:	99 ef       	ldi	r25, 0xF9	; 249
+ 332:	97 bd       	out	0x27, r25	; 39
+	TIMSK0 = (1 << OCIE0A);              // habilita la interrupcion
+ 334:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <__TEXT_REGION_LENGTH__+0x7f806e>
+	TCCR0B = (1 << CS01) | (1 << CS00);  // prescaler 64
+ 338:	83 e0       	ldi	r24, 0x03	; 3
+ 33a:	85 bd       	out	0x25, r24	; 37
+ 33c:	08 95       	ret
+
+0000033e <millis>:
+}
+
+uint32_t millis(void) {
+	uint32_t v;
+	cli();                               // lectura atomica de 32 bits
+ 33e:	f8 94       	cli
+	v = ms_count;
+ 340:	60 91 cc 01 	lds	r22, 0x01CC	; 0x8001cc <ms_count>
+ 344:	70 91 cd 01 	lds	r23, 0x01CD	; 0x8001cd <ms_count+0x1>
+ 348:	80 91 ce 01 	lds	r24, 0x01CE	; 0x8001ce <ms_count+0x2>
+ 34c:	90 91 cf 01 	lds	r25, 0x01CF	; 0x8001cf <ms_count+0x3>
+	sei();
+ 350:	78 94       	sei
+	return v;
+}
+ 352:	08 95       	ret
+
+00000354 <UART_Init>:
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
+
+void UART_Init(uint32_t baud) {
+	uint16_t ubrr = (F_CPU / (16UL * baud)) - 1;
+ 354:	dc 01       	movw	r26, r24
+ 356:	cb 01       	movw	r24, r22
+ 358:	88 0f       	add	r24, r24
+ 35a:	99 1f       	adc	r25, r25
+ 35c:	aa 1f       	adc	r26, r26
+ 35e:	bb 1f       	adc	r27, r27
+ 360:	88 0f       	add	r24, r24
+ 362:	99 1f       	adc	r25, r25
+ 364:	aa 1f       	adc	r26, r26
+ 366:	bb 1f       	adc	r27, r27
+ 368:	9c 01       	movw	r18, r24
+ 36a:	ad 01       	movw	r20, r26
+ 36c:	22 0f       	add	r18, r18
+ 36e:	33 1f       	adc	r19, r19
+ 370:	44 1f       	adc	r20, r20
+ 372:	55 1f       	adc	r21, r21
+ 374:	22 0f       	add	r18, r18
+ 376:	33 1f       	adc	r19, r19
+ 378:	44 1f       	adc	r20, r20
+ 37a:	55 1f       	adc	r21, r21
+ 37c:	60 e0       	ldi	r22, 0x00	; 0
+ 37e:	74 e2       	ldi	r23, 0x24	; 36
+ 380:	84 ef       	ldi	r24, 0xF4	; 244
+ 382:	90 e0       	ldi	r25, 0x00	; 0
+ 384:	0e 94 85 02 	call	0x50a	; 0x50a <__udivmodsi4>
+ 388:	21 50       	subi	r18, 0x01	; 1
+ 38a:	31 09       	sbc	r19, r1
+	UBRR0H = (uint8_t)(ubrr >> 8);
+ 38c:	30 93 c5 00 	sts	0x00C5, r19	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+	UBRR0L = (uint8_t)ubrr;
+ 390:	20 93 c4 00 	sts	0x00C4, r18	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	UCSR0B = (1 << TXEN0) | (1 << RXEN0);
+ 394:	88 e1       	ldi	r24, 0x18	; 24
+ 396:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // 8 bits, sin paridad, 1 stop
+ 39a:	86 e0       	ldi	r24, 0x06	; 6
+ 39c:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+ 3a0:	08 95       	ret
+
+000003a2 <UART_Putc>:
+}
+
+void UART_Putc(char c) {
+	while (!(UCSR0A & (1 << UDRE0)));   // espera a que el buffer este libre
+ 3a2:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 3a6:	95 ff       	sbrs	r25, 5
+ 3a8:	fc cf       	rjmp	.-8      	; 0x3a2 <UART_Putc>
+	UDR0 = c;
+ 3aa:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 3ae:	08 95       	ret
+
+000003b0 <UART_Print>:
+}
+
+void UART_Print(const char *s) {
+ 3b0:	cf 93       	push	r28
+ 3b2:	df 93       	push	r29
+ 3b4:	ec 01       	movw	r28, r24
+	while (*s) UART_Putc(*s++);
+ 3b6:	03 c0       	rjmp	.+6      	; 0x3be <UART_Print+0xe>
+ 3b8:	21 96       	adiw	r28, 0x01	; 1
+ 3ba:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <UART_Putc>
+ 3be:	88 81       	ld	r24, Y
+ 3c0:	81 11       	cpse	r24, r1
+ 3c2:	fa cf       	rjmp	.-12     	; 0x3b8 <UART_Print+0x8>
+}
+ 3c4:	df 91       	pop	r29
+ 3c6:	cf 91       	pop	r28
+ 3c8:	08 95       	ret
+
+000003ca <UART_PrintNum>:
+
+void UART_PrintNum(uint16_t n) {
+ 3ca:	1f 93       	push	r17
+ 3cc:	cf 93       	push	r28
+ 3ce:	df 93       	push	r29
+ 3d0:	00 d0       	rcall	.+0      	; 0x3d2 <UART_PrintNum+0x8>
+ 3d2:	00 d0       	rcall	.+0      	; 0x3d4 <UART_PrintNum+0xa>
+ 3d4:	00 d0       	rcall	.+0      	; 0x3d6 <UART_PrintNum+0xc>
+ 3d6:	cd b7       	in	r28, 0x3d	; 61
+ 3d8:	de b7       	in	r29, 0x3e	; 62
+ 3da:	ac 01       	movw	r20, r24
+	char buf[6];
+	uint8_t i = 0;
+
+	if (n == 0) { UART_Putc('0'); return; }
+ 3dc:	89 2b       	or	r24, r25
+ 3de:	91 f5       	brne	.+100    	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+ 3e0:	80 e3       	ldi	r24, 0x30	; 48
+ 3e2:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <UART_Putc>
+ 3e6:	3f c0       	rjmp	.+126    	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
+	while (n > 0) { buf[i++] = '0' + (n % 10); n /= 10; }
+ 3e8:	9a 01       	movw	r18, r20
+ 3ea:	ad ec       	ldi	r26, 0xCD	; 205
+ 3ec:	bc ec       	ldi	r27, 0xCC	; 204
+ 3ee:	0e 94 a7 02 	call	0x54e	; 0x54e <__umulhisi3>
+ 3f2:	96 95       	lsr	r25
+ 3f4:	87 95       	ror	r24
+ 3f6:	96 95       	lsr	r25
+ 3f8:	87 95       	ror	r24
+ 3fa:	96 95       	lsr	r25
+ 3fc:	87 95       	ror	r24
+ 3fe:	9c 01       	movw	r18, r24
+ 400:	22 0f       	add	r18, r18
+ 402:	33 1f       	adc	r19, r19
+ 404:	88 0f       	add	r24, r24
+ 406:	99 1f       	adc	r25, r25
+ 408:	88 0f       	add	r24, r24
+ 40a:	99 1f       	adc	r25, r25
+ 40c:	88 0f       	add	r24, r24
+ 40e:	99 1f       	adc	r25, r25
+ 410:	82 0f       	add	r24, r18
+ 412:	93 1f       	adc	r25, r19
+ 414:	9a 01       	movw	r18, r20
+ 416:	28 1b       	sub	r18, r24
+ 418:	39 0b       	sbc	r19, r25
+ 41a:	c9 01       	movw	r24, r18
+ 41c:	e1 e0       	ldi	r30, 0x01	; 1
+ 41e:	f0 e0       	ldi	r31, 0x00	; 0
+ 420:	ec 0f       	add	r30, r28
+ 422:	fd 1f       	adc	r31, r29
+ 424:	e1 0f       	add	r30, r17
+ 426:	f1 1d       	adc	r31, r1
+ 428:	80 5d       	subi	r24, 0xD0	; 208
+ 42a:	80 83       	st	Z, r24
+ 42c:	9a 01       	movw	r18, r20
+ 42e:	0e 94 a7 02 	call	0x54e	; 0x54e <__umulhisi3>
+ 432:	ac 01       	movw	r20, r24
+ 434:	56 95       	lsr	r21
+ 436:	47 95       	ror	r20
+ 438:	56 95       	lsr	r21
+ 43a:	47 95       	ror	r20
+ 43c:	56 95       	lsr	r21
+ 43e:	47 95       	ror	r20
+ 440:	1f 5f       	subi	r17, 0xFF	; 255
+ 442:	01 c0       	rjmp	.+2      	; 0x446 <__EEPROM_REGION_LENGTH__+0x46>
+ 444:	10 e0       	ldi	r17, 0x00	; 0
+ 446:	41 15       	cp	r20, r1
+ 448:	51 05       	cpc	r21, r1
+ 44a:	71 f6       	brne	.-100    	; 0x3e8 <UART_PrintNum+0x1e>
+ 44c:	0a c0       	rjmp	.+20     	; 0x462 <__EEPROM_REGION_LENGTH__+0x62>
+	while (i > 0) UART_Putc(buf[--i]);  // se imprime al reves
+ 44e:	11 50       	subi	r17, 0x01	; 1
+ 450:	e1 e0       	ldi	r30, 0x01	; 1
+ 452:	f0 e0       	ldi	r31, 0x00	; 0
+ 454:	ec 0f       	add	r30, r28
+ 456:	fd 1f       	adc	r31, r29
+ 458:	e1 0f       	add	r30, r17
+ 45a:	f1 1d       	adc	r31, r1
+ 45c:	80 81       	ld	r24, Z
+ 45e:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <UART_Putc>
+ 462:	11 11       	cpse	r17, r1
+ 464:	f4 cf       	rjmp	.-24     	; 0x44e <__EEPROM_REGION_LENGTH__+0x4e>
+}
+ 466:	26 96       	adiw	r28, 0x06	; 6
+ 468:	0f b6       	in	r0, 0x3f	; 63
+ 46a:	f8 94       	cli
+ 46c:	de bf       	out	0x3e, r29	; 62
+ 46e:	0f be       	out	0x3f, r0	; 63
+ 470:	cd bf       	out	0x3d, r28	; 61
+ 472:	df 91       	pop	r29
+ 474:	cf 91       	pop	r28
+ 476:	1f 91       	pop	r17
+ 478:	08 95       	ret
+
+0000047a <Ultrasonico_Init>:
+
+#define TRIG_PIN PD2
+#define ECHO_PIN PD4
+
+void Ultrasonico_Init(void) {
+	DDRD |= (1 << TRIG_PIN);      // TRIG como salida
+ 47a:	8a b1       	in	r24, 0x0a	; 10
+ 47c:	84 60       	ori	r24, 0x04	; 4
+ 47e:	8a b9       	out	0x0a, r24	; 10
+	DDRD &= ~(1 << ECHO_PIN);     // ECHO como entrada
+ 480:	8a b1       	in	r24, 0x0a	; 10
+ 482:	8f 7e       	andi	r24, 0xEF	; 239
+ 484:	8a b9       	out	0x0a, r24	; 10
+	PORTD &= ~(1 << TRIG_PIN);
+ 486:	8b b1       	in	r24, 0x0b	; 11
+ 488:	8b 7f       	andi	r24, 0xFB	; 251
+ 48a:	8b b9       	out	0x0b, r24	; 11
+ 48c:	08 95       	ret
+
+0000048e <Ultrasonico_LeerCM>:
+}
+
+uint16_t Ultrasonico_LeerCM(void) {
+	uint16_t espera = 0, conteo = 0;
+
+	PORTD |= (1 << TRIG_PIN);     // pulso de disparo de 10 us
+ 48e:	8b b1       	in	r24, 0x0b	; 11
+ 490:	84 60       	ori	r24, 0x04	; 4
+ 492:	8b b9       	out	0x0b, r24	; 11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 494:	25 e3       	ldi	r18, 0x35	; 53
+ 496:	2a 95       	dec	r18
+ 498:	f1 f7       	brne	.-4      	; 0x496 <Ultrasonico_LeerCM+0x8>
+ 49a:	00 00       	nop
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+ 49c:	8b b1       	in	r24, 0x0b	; 11
+ 49e:	8b 7f       	andi	r24, 0xFB	; 251
+ 4a0:	8b b9       	out	0x0b, r24	; 11
+	DDRD &= ~(1 << ECHO_PIN);     // ECHO como entrada
+	PORTD &= ~(1 << TRIG_PIN);
+}
+
+uint16_t Ultrasonico_LeerCM(void) {
+	uint16_t espera = 0, conteo = 0;
+ 4a2:	80 e0       	ldi	r24, 0x00	; 0
+ 4a4:	90 e0       	ldi	r25, 0x00	; 0
+
+	PORTD |= (1 << TRIG_PIN);     // pulso de disparo de 10 us
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+
+	while (!(PIND & (1 << ECHO_PIN))) {    // espera a que suba el eco
+ 4a6:	09 c0       	rjmp	.+18     	; 0x4ba <Ultrasonico_LeerCM+0x2c>
+ 4a8:	2a e0       	ldi	r18, 0x0A	; 10
+ 4aa:	2a 95       	dec	r18
+ 4ac:	f1 f7       	brne	.-4      	; 0x4aa <Ultrasonico_LeerCM+0x1c>
+ 4ae:	00 c0       	rjmp	.+0      	; 0x4b0 <Ultrasonico_LeerCM+0x22>
+		_delay_us(2);
+		if (++espera > 15000) return 0;    // el sensor no respondio
+ 4b0:	01 96       	adiw	r24, 0x01	; 1
+ 4b2:	89 39       	cpi	r24, 0x99	; 153
+ 4b4:	2a e3       	ldi	r18, 0x3A	; 58
+ 4b6:	92 07       	cpc	r25, r18
+ 4b8:	10 f5       	brcc	.+68     	; 0x4fe <Ultrasonico_LeerCM+0x70>
+
+	PORTD |= (1 << TRIG_PIN);     // pulso de disparo de 10 us
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+
+	while (!(PIND & (1 << ECHO_PIN))) {    // espera a que suba el eco
+ 4ba:	4c 9b       	sbis	0x09, 4	; 9
+ 4bc:	f5 cf       	rjmp	.-22     	; 0x4a8 <Ultrasonico_LeerCM+0x1a>
+ 4be:	60 e0       	ldi	r22, 0x00	; 0
+ 4c0:	70 e0       	ldi	r23, 0x00	; 0
+ 4c2:	0a c0       	rjmp	.+20     	; 0x4d8 <Ultrasonico_LeerCM+0x4a>
+ 4c4:	8a e0       	ldi	r24, 0x0A	; 10
+ 4c6:	8a 95       	dec	r24
+ 4c8:	f1 f7       	brne	.-4      	; 0x4c6 <Ultrasonico_LeerCM+0x38>
+ 4ca:	00 c0       	rjmp	.+0      	; 0x4cc <Ultrasonico_LeerCM+0x3e>
+		if (++espera > 15000) return 0;    // el sensor no respondio
+	}
+
+	while (PIND & (1 << ECHO_PIN)) {       // mide cuanto dura en alto
+		_delay_us(2);
+		if (++conteo > 15000) return 0;    // objeto fuera de rango
+ 4cc:	6f 5f       	subi	r22, 0xFF	; 255
+ 4ce:	7f 4f       	sbci	r23, 0xFF	; 255
+ 4d0:	69 39       	cpi	r22, 0x99	; 153
+ 4d2:	2a e3       	ldi	r18, 0x3A	; 58
+ 4d4:	72 07       	cpc	r23, r18
+ 4d6:	b0 f4       	brcc	.+44     	; 0x504 <Ultrasonico_LeerCM+0x76>
+	while (!(PIND & (1 << ECHO_PIN))) {    // espera a que suba el eco
+		_delay_us(2);
+		if (++espera > 15000) return 0;    // el sensor no respondio
+	}
+
+	while (PIND & (1 << ECHO_PIN)) {       // mide cuanto dura en alto
+ 4d8:	4c 99       	sbic	0x09, 4	; 9
+ 4da:	f4 cf       	rjmp	.-24     	; 0x4c4 <Ultrasonico_LeerCM+0x36>
+		_delay_us(2);
+		if (++conteo > 15000) return 0;    // objeto fuera de rango
+	}
+
+	return (uint16_t)(((uint32_t)conteo * 2UL) / 58UL);  // de us a cm
+ 4dc:	cb 01       	movw	r24, r22
+ 4de:	a0 e0       	ldi	r26, 0x00	; 0
+ 4e0:	b0 e0       	ldi	r27, 0x00	; 0
+ 4e2:	bc 01       	movw	r22, r24
+ 4e4:	cd 01       	movw	r24, r26
+ 4e6:	66 0f       	add	r22, r22
+ 4e8:	77 1f       	adc	r23, r23
+ 4ea:	88 1f       	adc	r24, r24
+ 4ec:	99 1f       	adc	r25, r25
+ 4ee:	2a e3       	ldi	r18, 0x3A	; 58
+ 4f0:	30 e0       	ldi	r19, 0x00	; 0
+ 4f2:	40 e0       	ldi	r20, 0x00	; 0
+ 4f4:	50 e0       	ldi	r21, 0x00	; 0
+ 4f6:	0e 94 85 02 	call	0x50a	; 0x50a <__udivmodsi4>
+ 4fa:	c9 01       	movw	r24, r18
+ 4fc:	08 95       	ret
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+
+	while (!(PIND & (1 << ECHO_PIN))) {    // espera a que suba el eco
+		_delay_us(2);
+		if (++espera > 15000) return 0;    // el sensor no respondio
+ 4fe:	80 e0       	ldi	r24, 0x00	; 0
+ 500:	90 e0       	ldi	r25, 0x00	; 0
+ 502:	08 95       	ret
+	}
+
+	while (PIND & (1 << ECHO_PIN)) {       // mide cuanto dura en alto
+		_delay_us(2);
+		if (++conteo > 15000) return 0;    // objeto fuera de rango
+ 504:	80 e0       	ldi	r24, 0x00	; 0
+ 506:	90 e0       	ldi	r25, 0x00	; 0
+	}
+
+	return (uint16_t)(((uint32_t)conteo * 2UL) / 58UL);  // de us a cm
+}
+ 508:	08 95       	ret
+
+0000050a <__udivmodsi4>:
+ 50a:	a1 e2       	ldi	r26, 0x21	; 33
+ 50c:	1a 2e       	mov	r1, r26
+ 50e:	aa 1b       	sub	r26, r26
+ 510:	bb 1b       	sub	r27, r27
+ 512:	fd 01       	movw	r30, r26
+ 514:	0d c0       	rjmp	.+26     	; 0x530 <__udivmodsi4_ep>
+
+00000516 <__udivmodsi4_loop>:
+ 516:	aa 1f       	adc	r26, r26
+ 518:	bb 1f       	adc	r27, r27
+ 51a:	ee 1f       	adc	r30, r30
+ 51c:	ff 1f       	adc	r31, r31
+ 51e:	a2 17       	cp	r26, r18
+ 520:	b3 07       	cpc	r27, r19
+ 522:	e4 07       	cpc	r30, r20
+ 524:	f5 07       	cpc	r31, r21
+ 526:	20 f0       	brcs	.+8      	; 0x530 <__udivmodsi4_ep>
+ 528:	a2 1b       	sub	r26, r18
+ 52a:	b3 0b       	sbc	r27, r19
+ 52c:	e4 0b       	sbc	r30, r20
+ 52e:	f5 0b       	sbc	r31, r21
+
+00000530 <__udivmodsi4_ep>:
+ 530:	66 1f       	adc	r22, r22
+ 532:	77 1f       	adc	r23, r23
+ 534:	88 1f       	adc	r24, r24
+ 536:	99 1f       	adc	r25, r25
+ 538:	1a 94       	dec	r1
+ 53a:	69 f7       	brne	.-38     	; 0x516 <__udivmodsi4_loop>
+ 53c:	60 95       	com	r22
+ 53e:	70 95       	com	r23
+ 540:	80 95       	com	r24
+ 542:	90 95       	com	r25
+ 544:	9b 01       	movw	r18, r22
+ 546:	ac 01       	movw	r20, r24
+ 548:	bd 01       	movw	r22, r26
+ 54a:	cf 01       	movw	r24, r30
+ 54c:	08 95       	ret
+
+0000054e <__umulhisi3>:
+ 54e:	a2 9f       	mul	r26, r18
+ 550:	b0 01       	movw	r22, r0
+ 552:	b3 9f       	mul	r27, r19
+ 554:	c0 01       	movw	r24, r0
+ 556:	a3 9f       	mul	r26, r19
+ 558:	70 0d       	add	r23, r0
+ 55a:	81 1d       	adc	r24, r1
+ 55c:	11 24       	eor	r1, r1
+ 55e:	91 1d       	adc	r25, r1
+ 560:	b2 9f       	mul	r27, r18
+ 562:	70 0d       	add	r23, r0
+ 564:	81 1d       	adc	r24, r1
+ 566:	11 24       	eor	r1, r1
+ 568:	91 1d       	adc	r25, r1
+ 56a:	08 95       	ret
+
+0000056c <_exit>:
+ 56c:	f8 94       	cli
+
+0000056e <__stop_program>:
+ 56e:	ff cf       	rjmp	.-2      	; 0x56e <__stop_program>
