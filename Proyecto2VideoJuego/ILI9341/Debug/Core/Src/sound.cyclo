@@ -1,0 +1,7 @@
+../Core/Src/sound.c:28:13:send_cmd	1
+../Core/Src/sound.c:33:6:sound_init	1
+../Core/Src/sound.c:40:6:sound_update	1
+../Core/Src/sound.c:42:6:sound_music	2
+../Core/Src/sound.c:49:6:sound_sfx	2
+../Core/Src/sound.c:54:6:sound_volume	2
+../Core/Src/sound.c:59:6:sound_mute	2

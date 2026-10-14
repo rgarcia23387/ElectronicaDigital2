@@ -1,0 +1,14 @@
+../Core/Src/storage.c:47:17:rd16	1
+../Core/Src/storage.c:49:10:storage_error	1
+../Core/Src/storage.c:51:12:load_backdrop	11
+../Core/Src/storage.c:68:9:storage_init	3
+../Core/Src/storage.c:81:9:storage_ok	1
+../Core/Src/storage.c:86:5:storage_load_sprites	15
+../Core/Src/storage.c:106:5:storage_show_image	15
+../Core/Src/storage.c:132:5:storage_load_text	5
+../Core/Src/storage.c:146:5:storage_load_level	13
+../Core/Src/storage.c:176:13:write_text	3
+../Core/Src/storage.c:185:6:storage_load_records	9
+../Core/Src/storage.c:198:6:storage_save_records	3
+../Core/Src/storage.c:208:6:storage_load_stats	9
+../Core/Src/storage.c:223:6:storage_save_stats	1

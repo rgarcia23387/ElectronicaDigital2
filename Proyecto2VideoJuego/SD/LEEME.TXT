@@ -1,0 +1,8 @@
+ANGRY BIRDS - Proyecto 2, IE3054
+SPRITES.BIN  graficos del juego (pajaros, cerdos, bloques, honda...)
+PORTADA.BIN  pantalla de presentacion 320x240
+FONDO.BIN    fondo ilustrado 320x208, 16 colores
+NIVELn.BIN   niveles del juego
+CREDITOS.TXT texto de la pantalla de creditos (se puede editar)
+RECORDS.TXT  mejor puntaje por nivel (lo actualiza el juego)
+STATS.TXT    partidas, victorias y derrotas (lo actualiza el juego)

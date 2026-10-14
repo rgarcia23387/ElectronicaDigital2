@@ -1,0 +1,9 @@
+../Core/Src/controller.c:21:6:HAL_UART_RxCpltCallback	24	static
+../Core/Src/controller.c:34:6:HAL_UART_ErrorCallback	24	static
+../Core/Src/controller.c:42:6:pad_init	8	static
+../Core/Src/controller.c:52:13:parse_byte	16	static
+../Core/Src/controller.c:85:6:pad_poll	16	static
+../Core/Src/controller.c:100:17:pad_get	4	static
+../Core/Src/controller.c:102:9:pad_take_presses	16	static
+../Core/Src/controller.c:110:8:pad_nav_y	4	static
+../Core/Src/controller.c:122:6:pad_send_status	24	static

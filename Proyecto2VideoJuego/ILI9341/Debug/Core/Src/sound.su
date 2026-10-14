@@ -1,0 +1,7 @@
+../Core/Src/sound.c:28:13:send_cmd	16	static
+../Core/Src/sound.c:33:6:sound_init	8	static
+../Core/Src/sound.c:40:6:sound_update	4	static
+../Core/Src/sound.c:42:6:sound_music	16	static
+../Core/Src/sound.c:49:6:sound_sfx	16	static
+../Core/Src/sound.c:54:6:sound_volume	16	static
+../Core/Src/sound.c:59:6:sound_mute	16	static

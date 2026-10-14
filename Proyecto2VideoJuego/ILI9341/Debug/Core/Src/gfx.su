@@ -1,0 +1,10 @@
+../Core/Src/gfx.c:16:6:gfx_sprite	48	static
+../Core/Src/gfx.c:44:6:gfx_sprite_scaled	64	static
+../Core/Src/gfx.c:57:6:gfx_indexed	56	static
+../Core/Src/gfx.c:75:6:gfx_stream_begin	32	static
+../Core/Src/gfx.c:81:6:gfx_stream_push	24	static
+../Core/Src/gfx.c:89:6:gfx_stream_end	4	static
+../Core/Src/gfx.c:94:6:gfx_fill_circle	56	static
+../Core/Src/gfx.c:109:6:gfx_line	64	static
+../Core/Src/gfx.c:124:6:gfx_text_in	48	static
+../Core/Src/gfx.c:133:6:gfx_text_center	40	static

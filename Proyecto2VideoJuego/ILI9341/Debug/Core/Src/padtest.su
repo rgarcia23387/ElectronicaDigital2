@@ -1,0 +1,4 @@
+../Core/Src/padtest.c:35:13:draw_cross	16	static
+../Core/Src/padtest.c:41:13:draw_button	40	static
+../Core/Src/padtest.c:50:6:padtest_full	16	static
+../Core/Src/padtest.c:69:6:padtest_update	64	static

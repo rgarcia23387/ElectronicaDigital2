@@ -1,0 +1,14 @@
+../Core/Src/sd_spi.c:54:13:spi_speed	16	static
+../Core/Src/sd_spi.c:60:16:spi_xchg	32	static
+../Core/Src/sd_spi.c:67:13:spi_rx_block	24	static
+../Core/Src/sd_spi.c:73:12:wait_ready	24	static
+../Core/Src/sd_spi.c:82:13:deselect	8	static
+../Core/Src/sd_spi.c:88:12:select	8	static
+../Core/Src/sd_spi.c:98:16:send_cmd	24	static
+../Core/Src/sd_spi.c:126:12:rx_datablock	24	static
+../Core/Src/sd_spi.c:137:12:tx_datablock	24	static
+../Core/Src/sd_spi.c:150:9:SD_disk_initialize	64	static
+../Core/Src/sd_spi.c:208:9:SD_disk_status	16	static
+../Core/Src/sd_spi.c:213:9:SD_disk_read	24	static
+../Core/Src/sd_spi.c:229:9:SD_disk_write	24	static
+../Core/Src/sd_spi.c:246:9:SD_disk_ioctl	48	static

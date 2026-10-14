@@ -1,0 +1,9 @@
+../Core/Src/synth.c:148:17:freq_to_inc	16	static
+../Core/Src/synth.c:154:6:synth_sample_isr	40	static
+../Core/Src/synth.c:207:13:track_start	24	static
+../Core/Src/synth.c:217:13:track_step	48	static
+../Core/Src/synth.c:251:13:buzzer_out	24	static
+../Core/Src/synth.c:271:6:synth_update	16	static
+../Core/Src/synth.c:285:13:music	24	static
+../Core/Src/synth.c:311:6:synth_command	32	static
+../Core/Src/synth.c:327:6:synth_init	16	static

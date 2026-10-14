@@ -1,0 +1,16 @@
+../Core/Src/screens.c:13:13:sky_fill	2
+../Core/Src/screens.c:131:17:level_load	6
+../Core/Src/screens.c:151:13:draw_cell	11
+../Core/Src/screens.c:169:6:scene_restore	27
+../Core/Src/screens.c:200:13:draw_menu_sky	3
+../Core/Src/screens.c:213:13:draw_panel	1
+../Core/Src/screens.c:233:13:menu_draw_option	4
+../Core/Src/screens.c:246:6:screens_menu_full	4
+../Core/Src/screens.c:276:6:screens_menu_select	2
+../Core/Src/screens.c:283:6:screens_menu_level	1
+../Core/Src/screens.c:292:6:screens_records	2
+../Core/Src/screens.c:312:6:screens_credits	14
+../Core/Src/screens.c:360:6:screens_win	4
+../Core/Src/screens.c:375:6:screens_gameover	1
+../Core/Src/screens.c:395:13:gallery_row	2
+../Core/Src/screens.c:405:6:screens_gallery	1
